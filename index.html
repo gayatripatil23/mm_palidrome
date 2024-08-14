@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Palindrome checker app by Ankita</title>
+<style>
+*{font-size:60px; font-family:Cambria;}
+body{background-color:lightblue;}
+</style>
+</head>
+<body>
+<center>
+<h1>Palindrome Checker</h1>
+<form onsubmit="check()">
+<input type="text" id="string" placeholder="enter string"/>
+<br/><br/>
+<input type="submit" value="Check"/>
+</form>
+<h2 id="msg"/>
+<script>
+function check()
+{
+event.preventDefault();
+let string=document.getElementById("string");
+let msg=document.getElementById("msg");
+if(string.value==="")
+{
+alert("string cannot be empty");
+msg.innerHTML="";
+string.focus();
+return;
+}
+if(string.value.trim()==="")
+{
+alert("string cannot be blank");
+msg.innerHTML="";
+string.value="";
+string.focus();
+return;
+}
+if(!string.value.match(/^[A-Za-z]+$/))
+{
+alert("string shud containd only alphabets");
+msg.innerHTML="";
+string.value="";
+string.focus();
+return;
+}
+let org=string.value;
+let rev=org.split("").reverse().join("");
+
+if(org===rev)
+a="yes it is a palindrome";
+else
+a="no it is not a palindrome";
+msg.innerHTML=a;
+}
+</script>
+</center>
+</body>
+</html>
